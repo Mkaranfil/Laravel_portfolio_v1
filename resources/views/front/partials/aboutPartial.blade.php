@@ -2,15 +2,19 @@
 
 <!-- ======= About Us Section ======= -->
 
-<!-- ======= Features Section ======= -->
-<section id="features" class="features">
+<section id="about" class="about">
   <div class="container">
-
-    <div id="about" class="section-title">
+    <div class="section-title">
       <h2>About Us</h2>
       <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
     </div>
+  </div>
+</section>
+<!-- End About Us Section -->
 
+<!-- ======= Features Section ======= -->
+<section id="features" class="features">
+  <div class="container">
 
     <div class="row">
       <div class="col-lg-6 order-2 order-lg-1">
@@ -39,67 +43,64 @@
     </div>
 
   </div>
-</section>
-<!-- End Features Section -->
+</section><!-- End Features Section -->
 
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
-      <div class="container">
+<!-- ======= Clients Section ======= -->
+<section id="clients" class="clients">
+  <div class="container">
 
-        <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
+    <div class="row no-gutters clients-wrap clearfix wow fadeInUp">
 
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-4 col-xs-6">
-            <div class="client-logo">
-              <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
-            </div>
-          </div>
-
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="client-logo">
+          <img src="assets/img/clients/client-1.png" class="img-fluid" alt="">
         </div>
-
       </div>
-    </section>
-    <!-- End Clients Section -->
 
-  <!-- End About Us Section -->
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="client-logo">
+          <img src="assets/img/clients/client-2.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="client-logo">
+          <img src="assets/img/clients/client-3.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="client-logo">
+          <img src="assets/img/clients/client-4.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="client-logo">
+          <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="client-logo">
+          <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="client-logo">
+          <img src="assets/img/clients/client-7.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-xs-6">
+        <div class="client-logo">
+          <img src="assets/img/clients/client-8.png" class="img-fluid" alt="">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- End Clients Section -->
