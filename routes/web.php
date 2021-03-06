@@ -26,11 +26,15 @@ Route::get('/', function () {
     return view('front/pages/allFront',compact('navbarLien','navbarTitre','navbarBtn'));
 });
 Route::get('/backoffice', function () {
-    return view('back/pages/allBack');
+    $navbarLien = NavBarLien::all();
+    $navbarTitre = NavbarTitre::all();
+    $navbarBtn=NavbarBtn::all();
+    return view('back/pages/allBack',compact('navbarLien','navbarTitre','navbarBtn'));
 });
 
 // NavBar
 Route::resource('navbarLien',NavBarLienController::class);
+Route::post('/delet-all',[NavBarLienController::class,'destroyAll']);
 Route::resource('navbarTitre',NavbarTitreController::class);
 Route::resource('navbarBtn',NavbarBtnController::class);
 

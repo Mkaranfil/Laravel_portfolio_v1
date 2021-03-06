@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NavBarLien;
 use App\Models\NavbarTitre;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,12 @@ class NavbarTitreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new NavbarTitre();
+        $store->titre= $request->titre;
+        $store->href = $request->href;
+        $store->save();
+        return redirect()->back();
+    
     }
 
     /**
@@ -55,9 +61,10 @@ class NavbarTitreController extends Controller
      * @param  \App\Models\NavbarTitre  $navbarTitre
      * @return \Illuminate\Http\Response
      */
-    public function edit(NavbarTitre $navbarTitre)
+    public function edit($id)
     {
-        //
+        $edit = NavbarTitre::find($id);
+        return view('back/pages/edit/navbarTitreEdit',compact('edit'));
     }
 
     /**
@@ -67,9 +74,13 @@ class NavbarTitreController extends Controller
      * @param  \App\Models\NavbarTitre  $navbarTitre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NavbarTitre $navbarTitre)
+    public function update(Request $request,$id)
     {
-        //
+        $update = NavbarTitre::find($id);
+        $update->titre = $request->titre;
+        $update->href = $request->href;
+        $update->save();
+        return redirect('/backoffice/#bo-navbar');
     }
 
     /**
@@ -78,8 +89,11 @@ class NavbarTitreController extends Controller
      * @param  \App\Models\NavbarTitre  $navbarTitre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NavbarTitre $navbarTitre)
+    public function destroy($id)
     {
-        //
+        $destroy = NavbarTitre::find($id);
+        $destroy->delete();
+        return redirect()->back();
     }
+
 }

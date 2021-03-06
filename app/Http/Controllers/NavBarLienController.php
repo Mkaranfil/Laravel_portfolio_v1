@@ -24,7 +24,7 @@ class NavBarLienController extends Controller
      */
     public function create()
     {
-        //
+        return view('back/pages/backoffice');
     }
 
     /**
@@ -35,7 +35,11 @@ class NavBarLienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new NavBarLien();
+        $store->nom = $request->nom;
+        $store->href = $request->href;
+        $store->save();
+        return redirect()->back();
     }
 
     /**
@@ -55,9 +59,10 @@ class NavBarLienController extends Controller
      * @param  \App\Models\NavBarLien  $navBarLien
      * @return \Illuminate\Http\Response
      */
-    public function edit(NavBarLien $navBarLien)
+    public function edit($id)
     {
-        //
+        $edit = NavBarLien::find($id);
+        return view('back/pages/edit/navbarLienEdit',compact('edit'));
     }
 
     /**
@@ -67,9 +72,13 @@ class NavBarLienController extends Controller
      * @param  \App\Models\NavBarLien  $navBarLien
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NavBarLien $navBarLien)
+    public function update(Request $request, $id)
     {
-        //
+        $update = NavBarLien::find($id);
+        $update->nom= $request->nom;
+        $update->href = $request->href;
+        $update->save();
+        return redirect('/backoffice/#bo-navbarlien');
     }
 
     /**
@@ -78,8 +87,18 @@ class NavBarLienController extends Controller
      * @param  \App\Models\NavBarLien  $navBarLien
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NavBarLien $navBarLien)
+    public function destroy($id)
     {
-        //
+        $destroy = NavBarLien::find($id);
+        $destroy->delete();
+        return redirect()->back();
+    }
+    public function destroyAll()
+    {
+        $destroy = NavBarLien::all();
+        foreach ($destroy as $item) {
+            $item->delete();
+        }
+        return redirect()->back();
     }
 }

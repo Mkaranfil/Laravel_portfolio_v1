@@ -28,7 +28,7 @@
 <body>
 
 
-    @include('back/partials/navBarBo')
+    @include('back/partials/mainNavbar')
         @yield('content')
   
 
