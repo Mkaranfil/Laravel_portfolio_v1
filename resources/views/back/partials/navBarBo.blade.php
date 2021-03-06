@@ -22,10 +22,10 @@
             </div>
         </div>
     </div>{{-- end preview --}}
-    {{-- modifier_titre --}}
+    {{-- start modifier titre --}}
     <div class="mt-4">
         <div id="titre" class="container">
-            <h4 class="bg-success"style="text-decoration: underline">Titre:</h4>
+            <h4 id="navbarTitre" class="bg-success"style="text-decoration: underline">Titre:</h4>
             <p>Content:</p>
             {{-- tableau titre --}}
             <table class="table table-striped">
@@ -61,23 +61,36 @@
                 </tbody>
             </table>
             <div>
+                {{-- ajouter titre --}}
                 <p>Ajouter:</p>
+                {{-- validate --}}
+                <div>
+                    @if ($errors->navbarTitre->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->navbarTitre->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div> {{-- end validate --}}
                 <form action="/navbarTitre" method="POST" class="d-flex">
                     @csrf
                     <div class="mr-3">
                         <label for="nom">Nom: </label>
-                        <input type="text" name="titre" id="nom">
+                        <input type="text" name="titre" id="nom" value={{old('titre')}}>
                     </div>
                     <div>
                         <label for="titre">Href: </label>
-                        <input type="text" name="href" id="href">
+                        <input type="text" name="href" id="href" value={{old('href')}}>
                     </div>
                     <button type="submit" class="btn btn-info  ml-5">Ajouter</button>
                 </form>
             </div>  
         </div>
-    </div>
-    {{-- modifier lien --}}
+    </div>{{-- end navbarTitre --}}
+    {{-- start modifier lien --}}
     <div class="mt-4">
         <div id="titre" class="container">
             <h4 class="bg-success" style="text-decoration: underline">Lien:</h4>
@@ -122,23 +135,36 @@
                 </form>  
             </div>
             <div>
+                {{-- ajouter lien --}}
                 <p>Ajouter:</p>
+                {{-- validate --}}
+                <div>
+                    @if ($errors->navbarLien->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->navbarLien->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div> {{-- end validate --}}
                 <form action="/navbarLien" method="POST" class="d-flex">
                     @csrf
                     <div class="mr-3">
                         <label for="nom">Nom: </label>
-                        <input type="text" name="nom" id="nom">
+                        <input type="text" name="nom" id="nom" value={{old('nom')}}>
                     </div>
                     <div>
                         <label for="titre">Href: </label>
-                        <input type="text" name="href" id="href">
+                        <input type="text" name="href" id="href" value={{old('href')}}>
                     </div>
                     <button type="submit" class="btn btn-info  ml-5">Ajouter</button>
                   
                 </form>
             </div>  
         </div>
-    </div>
+    </div>{{-- end navbarlien --}}
    
     
 </section>

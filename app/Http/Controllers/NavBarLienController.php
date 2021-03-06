@@ -35,6 +35,11 @@ class NavBarLienController extends Controller
      */
     public function store(Request $request)
     {
+        $validation = $request->validateWithBag("navbarLien",[
+            "nom" => 'required',
+            "href" => 'required',
+           
+        ]);
         $store = new NavBarLien();
         $store->nom = $request->nom;
         $store->href = $request->href;
@@ -74,11 +79,16 @@ class NavBarLienController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validation = $request->validateWithBag("navbarLien",[
+            "nom" => 'required',
+            "href" => 'required',
+           
+        ]);
         $update = NavBarLien::find($id);
         $update->nom= $request->nom;
         $update->href = $request->href;
         $update->save();
-        return redirect('/backoffice/#bo-navbarlien');
+        return redirect('/backoffice');
     }
 
     /**

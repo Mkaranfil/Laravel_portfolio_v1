@@ -7,10 +7,10 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-          <a class="nav-link" href="#bo-navbar">NavBar</a>
+          <a class="nav-link" href="">NavBar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#bo-home">Home</a>
+          <a class="nav-link" href="">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>

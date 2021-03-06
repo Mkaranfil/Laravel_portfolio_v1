@@ -36,6 +36,11 @@ class NavbarTitreController extends Controller
      */
     public function store(Request $request)
     {
+        $validation = $request->validateWithBag("navbarTitre",[
+            "titre" => 'required',
+            "href" => 'required',
+           
+        ]);
         $store = new NavbarTitre();
         $store->titre= $request->titre;
         $store->href = $request->href;
@@ -76,11 +81,16 @@ class NavbarTitreController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $validation = $request->validateWithBag("navbarTitre",[
+            "titre" => 'required',
+            "href" => 'required',
+           
+        ]);
         $update = NavbarTitre::find($id);
         $update->titre = $request->titre;
         $update->href = $request->href;
         $update->save();
-        return redirect('/backoffice/#bo-navbar');
+        return redirect('/backoffice/#bo-navbartitre');
     }
 
     /**
