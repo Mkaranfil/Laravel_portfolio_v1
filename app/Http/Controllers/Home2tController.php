@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NavbarBtn;
-use App\Models\NavBarLien;
-use App\Models\NavbarTitre;
+use App\Models\Home2t;
 use Illuminate\Http\Request;
 
-class NavbarTitreController extends Controller
+class Home2tController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,59 +35,52 @@ class NavbarTitreController extends Controller
      */
     public function store(Request $request)
     {
-        $validation = $request->validateWithBag("navbarTitre",[
+        $validation = $request->validateWithBag("homet2",[
             "titre" => 'required',
-            "href" => 'required',
-           
         ]);
-        $store = new NavbarTitre();
+        $store = new Home2t();
         $store->titre= $request->titre;
-        $store->href = $request->href;
         $store->save();
         return redirect()->back();
-    
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\NavbarTitre  $navbarTitre
+     * @param  \App\Models\Home2t  $home2t
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Home2t $home2t)
     {
-       
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\NavbarTitre  $navbarTitre
+     * @param  \App\Models\Home2t  $home2t
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $edit = NavbarTitre::find($id);
-        return view('back/pages/edit/navbarTitreEdit',compact('edit'));
+        $edit = Home2t::find($id);
+        return view('back/pages/edit/homet2Edit',compact('edit'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\NavbarTitre  $navbarTitre
+     * @param  \App\Models\Home2t  $home2t
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
     {
-        $validation = $request->validateWithBag("navbarTitre",[
-            "titre" => 'required',
-            "href" => 'required',
-           
+        $validation = $request->validateWithBag("homet2",[
+            "titre" => 'required', 
         ]);
-        $update = NavbarTitre::find($id);
+        $update = Home2t::find($id);
         $update->titre = $request->titre;
-        $update->href = $request->href;
         $update->save();
         return redirect('/backoffice');
     }
@@ -97,12 +88,12 @@ class NavbarTitreController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\NavbarTitre  $navbarTitre
+     * @param  \App\Models\Home2t  $home2t
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $destroy = NavbarTitre::find($id);
+        $destroy = Home2t::find($id);
         $destroy->delete();
         return redirect()->back();
     }

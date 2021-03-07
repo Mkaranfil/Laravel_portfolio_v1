@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class NavbarBtnSeeder extends Seeder
+class Home2tSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,12 +14,11 @@ class NavbarBtnSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('navbar_btns')->insert(
+        DB::table('home2ts')->insert(
             [
                 [
-                    'nom'=> "Download CV",
-                    'src'=>"attend",
-                   
+                    'titre'=> "Mustafa Karanfil"
+                    
                 ],
                
         

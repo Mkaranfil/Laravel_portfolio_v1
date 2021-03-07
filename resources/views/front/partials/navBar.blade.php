@@ -4,7 +4,9 @@
 
       <div class="row justify-content-center">
         <div class="col-xl-9 d-flex align-items-center justify-content-between">
-          <h1 class="logo"><a href="{{$navbarTitre[0]->href}}">{{$navbarTitre[0]->titre}}</a></h1>
+          @foreach ($navbarTitre as $item)   
+          <h1 class="logo"><a href="{{$item->href}}">{{$item->titre}}</a></h1>
+          @endforeach
           <!-- Uncomment below if you prefer to use an image logo -->
           <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -16,8 +18,9 @@
 
             </ul>
           </nav><!-- .nav-menu -->
-
-          <a class="get-started-btn scrollto">{{$navbarBtn[0]->nom}}</a>
+          @foreach ($navbarBtn as $item)    
+          <a class="get-started-btn scrollto">{{$item->nom}}</a>
+          @endforeach
         </div>
       </div>
 

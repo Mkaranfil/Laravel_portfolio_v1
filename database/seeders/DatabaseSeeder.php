@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
                 NavBarLienSeeder::class,
                 NavbarTitreSeeder::class,
                 NavbarBtnSeeder::class,
+                Home1tSeeder::class,
+                Home2tSeeder::class,
+                Home3tSeeder::class,
 
                 
             ],

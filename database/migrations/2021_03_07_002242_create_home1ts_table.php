@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNavbarBtnsTable extends Migration
+class CreateHome1tsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateNavbarBtnsTable extends Migration
      */
     public function up()
     {
-        Schema::create('navbar_btns', function (Blueprint $table) {
+        Schema::create('home1ts', function (Blueprint $table) {
             $table->id();
-            $table->string('nom',20);
-            $table->string('src');
+            $table->string('titre');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateNavbarBtnsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('navbar_btns');
+        Schema::dropIfExists('home1ts');
     }
 }

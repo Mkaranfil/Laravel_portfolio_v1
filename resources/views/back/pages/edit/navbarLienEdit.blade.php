@@ -24,6 +24,7 @@
             <label for="titre">Href: </label>
             <input type="text" name="href" id="href" value="{{old('href') ? old('href') : $edit->href}}">
             <button type="submit" class="btn btn-info">Submit</button>
+            <a  class="btn btn-warning ml-3" href="/backoffice">Retour</a>
         </form>
     </div>
 </section>

@@ -6,24 +6,24 @@
         <p>Modifier:</p>
              {{-- validate --}}
              <div>
-                @if ($errors->navbarTitre->any())
+                @if ($errors->homet1->any())
                     <div class="alert alert-danger">
                         <ul>
-                            @foreach ($errors->navbarTitre->all() as $error)
+                            @foreach ($errors->homet1->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
                 @endif
-              </div>
-        <form action="/navbarTitre/{{$edit->id}}" method="POST">
+                </div>
+        <form action="/homet1/{{$edit->id}}" method="POST" class="d-flex">
             @csrf
             @method('PATCH')
-            <label for="titre">Titre: </label>
-            <input type="text" name="titre" id="titre" value="{{old('titre') ? old('titre') : $edit->titre}}">
-            <label for="titre">Href: </label>
-            <input type="text" name="href" id="href" value="{{old('href') ? old('href') : $edit->href}}">
-            <button type="submit" class="btn btn-info">Confirmer</button>
+            <div class="mr-3">
+                <label for="nom">Titre: </label>
+                <input type="text" name="titre" id="nom" value="{{old('titre') ? old('titre') : $edit->titre}}">
+            </div>
+            <button type="submit" class="btn btn-info  ml-5">Ajouter</button>
             <a  class="btn btn-warning ml-3" href="/backoffice">Retour</a>
         </form>
     </div>
