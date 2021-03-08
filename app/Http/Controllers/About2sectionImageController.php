@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About2sectionImage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class About2sectionImageController extends Controller
 {
@@ -35,7 +36,16 @@ class About2sectionImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validateWithBag("about2sectionImage",[
+            'src'=>'required',
+           
+        ]);
+        $store = new About2sectionImage();
+        $store->src = $request->src;
+        Storage::put('public/img', $request->file('src'));
+        $store->src = $request->file('src')->hashName();
+        $store->save();
+        return redirect()->back();
     }
 
     /**
@@ -44,9 +54,10 @@ class About2sectionImageController extends Controller
      * @param  \App\Models\About2sectionImage  $about2sectionImage
      * @return \Illuminate\Http\Response
      */
-    public function show(About2sectionImage $about2sectionImage)
+    public function show($id)
     {
-        //
+        $show = About2sectionImage::find($id);
+        return view('back/pages/show/about2sectionImageShow',compact('show'));
     }
 
     /**
@@ -55,31 +66,28 @@ class About2sectionImageController extends Controller
      * @param  \App\Models\About2sectionImage  $about2sectionImage
      * @return \Illuminate\Http\Response
      */
-    public function edit(About2sectionImage $about2sectionImage)
-    {
-        //
-    }
+    // public function edit($id)
+    // {
+    //     $edit = About2sectionImage::find($id);
+    //     return view('back/pages/edit/about2sectionImageEdit',compact('edit'));
+    // }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\About2sectionImage  $about2sectionImage
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, About2sectionImage $about2sectionImage)
+    // public function update(Request $request,$id)
+    // {
+    //     $validation = $request->validateWithBag("about2sectionImage",[
+    //         "src" => 'required',
+            
+           
+    //     ]);
+    //     $update = About2sectionImage::find($id);
+    //     $update->src = $request->src;
+    //     $update->save();
+    //     return redirect('/backoffice');
+    // }
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\About2sectionImage  $about2sectionImage
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(About2sectionImage $about2sectionImage)
-    {
-        //
+        $destroy = About2sectionImage::find($id);
+        $destroy->delete();
+        return redirect()->back();
     }
 }

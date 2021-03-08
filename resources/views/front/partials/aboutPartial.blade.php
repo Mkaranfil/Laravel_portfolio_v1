@@ -3,25 +3,30 @@
 <section id="about" class="about">
     <div class="container">
         <div class="section-title">
-            <h2>{{$about1section[0]->titre}}</h2>
-            <p>{{$about1section[0]->paragraphe}}</p>
+            @foreach ($about1section as $item)
+                <h2>{{ $item->titre }}</h2>
+                <p>{{ $item->paragraphe }}</p>
+            @endforeach
         </div>
     </div>
     <!-- ======= Features Section ======= -->
     <div id="features" class=" features container">
         <div class="row">
             <div class="col-lg-6 order-2 order-lg-1">
-              @foreach ($about2sectionListe as $item)
-              <div class="icon-box mt-5 mt-lg-0">
-                  <i class="{{$item->icon}}"></i>
-                  <h4>{{$item->titre}}</h4>
-                  <p>{{$item->paragraphe}}</p>
-              </div>     
-              @endforeach
+                @foreach ($about2sectionListe as $item)
+                    <div class="icon-box mt-5 mt-lg-0">
+                        <i class="{{ $item->icon }}"></i>
+                        <h4>{{ $item->titre }}</h4>
+                        <p>{{ $item->paragraphe }}</p>
+                    </div>
+                @endforeach
             </div>
+            @foreach ($about2sectionImage as $item)
             <div class="image col-lg-6 order-1 order-lg-2">
-              <img height="400px" src="{{$about2sectionImage[0]->src}}" alt="">
+                <img height="400px" src="{{ $item->src }}" alt="">
+                <img height="400px" src="{{asset('storage/img/'.$item->src)}}"  alt="">  
             </div>
+        @endforeach
         </div>
 
     </div>

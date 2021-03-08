@@ -35,7 +35,19 @@ class About2sectionListeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validateWithBag("about2sectionListe",[
+            "titre" => 'required',
+            "icon" => 'required',
+            "paragraphe" => 'required',
+           
+        ]);
+        $store = new About2sectionListe();
+        $store->titre= $request->titre;
+        $store->icon= $request->icon;
+        $store->paragraphe = $request->paragraphe;
+        $store->save();
+        return redirect()->back();
+    
     }
 
     /**
@@ -55,9 +67,10 @@ class About2sectionListeController extends Controller
      * @param  \App\Models\About2sectionListe  $about2sectionListe
      * @return \Illuminate\Http\Response
      */
-    public function edit(About2sectionListe $about2sectionListe)
+    public function edit($id)
     {
-        //
+        $edit = About2sectionListe::find($id);
+        return view('back/pages/edit/about2sectionListeEdit',compact('edit'));
     }
 
     /**
@@ -67,9 +80,20 @@ class About2sectionListeController extends Controller
      * @param  \App\Models\About2sectionListe  $about2sectionListe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About2sectionListe $about2sectionListe)
+    public function update(Request $request,$id)
     {
-        //
+        $validation = $request->validateWithBag("about2sectionListe",[
+            "titre" => 'required',
+            "icon" => 'required',
+            "paragraphe" => 'required',
+           
+        ]);
+        $update =About2sectionListe::find($id);
+        $update->titre = $request->titre;
+        $update->icon = $request->icon;
+        $update->paragraphe = $request->paragraphe ;
+        $update->save();
+        return redirect('/backoffice');
     }
 
     /**
@@ -78,8 +102,10 @@ class About2sectionListeController extends Controller
      * @param  \App\Models\About2sectionListe  $about2sectionListe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(About2sectionListe $about2sectionListe)
+    public function destroy($id)
     {
-        //
+        $destroy = About2sectionListe::find($id);
+        $destroy->delete();
+        return redirect('/backoffice');
     }
 }

@@ -35,7 +35,17 @@ class About1sectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validation = $request->validateWithBag("about1section",[
+            "titre" => 'required',
+            "paragraphe" => 'required',
+           
+        ]);
+        $store = new About1section();
+        $store->titre= $request->titre;
+        $store->paragraphe = $request->paragraphe;
+        $store->save();
+        return redirect()->back();
+    
     }
 
     /**
@@ -55,9 +65,10 @@ class About1sectionController extends Controller
      * @param  \App\Models\About1section  $about1section
      * @return \Illuminate\Http\Response
      */
-    public function edit(About1section $about1section)
+    public function edit($id)
     {
-        //
+        $edit = About1section::find($id);
+        return view('back/pages/edit/about1sectionEdit',compact('edit'));
     }
 
     /**
@@ -67,9 +78,18 @@ class About1sectionController extends Controller
      * @param  \App\Models\About1section  $about1section
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, About1section $about1section)
+    public function update(Request $request,$id)
     {
-        //
+        $validation = $request->validateWithBag("about1section",[
+            "titre" => 'required',
+            "paragraphe" => 'required',
+           
+        ]);
+        $update = About1section::find($id);
+        $update->titre = $request->titre;
+        $update->paragraphe = $request->paragraphe ;
+        $update->save();
+        return redirect('/backoffice');
     }
 
     /**
@@ -78,8 +98,10 @@ class About1sectionController extends Controller
      * @param  \App\Models\About1section  $about1section
      * @return \Illuminate\Http\Response
      */
-    public function destroy(About1section $about1section)
+    public function destroy($id)
     {
-        //
+        $destroy = About1section::find($id);
+        $destroy->delete();
+        return redirect('/backoffice');
     }
 }
